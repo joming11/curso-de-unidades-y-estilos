@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Unidades y estilos</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,100&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!-- cdn=content delivery network, red de distribucion de contenido  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<article id="temario-css">
+	<h1>CSS básico</h1>
+	<h2>Temario</h2>
+	<ul>
+		<li><a href="index.html#colores">Colores</a></li>
+		<li><a href="index.html#units">Unidades de medida</a></li>
+		<li><a href="index.html#variables-functions">Variables & Funciones</a></li>
+		<li><a href="index.html#fonts-texts">Estilos de fuentes</a></li>
+		<li><a href="index.html#texts">Propiedas aplicables a textos</a></li>
+		<li><a href="index.html#icons">Iconos tipograficos</a></li>
+		<li><a href="index.html#radius-outline">Border radius-outline</a></li>
+		<li><a href="index.html#backgrounds">Fondos</a></li>
+		<li><a href="index.html#images">Imagenes en CSS</a></li>
+		<li><a href="index.html#lists">Estilos de listas</a></li>
+		<li><a href="index.html#tables">Estilos de tablas</a></li>
+		<li><a href="index.html#form">Estilos de formularios</a></li>
+	</ul>
+</article>
+<hr>
+<section id="colores">
+	<h2>Colores</h2>
+	<div class="color-name">
+		<h2>colores por nombre</h2>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ea saepe, esse eveniet ipsa accusamus, illum porro vero, exercitationem cupiditate vel optio eum, eligendi. Modi ea voluptas nemo quasi, quidem.</p>
+	</div>
+	<div class="color-hex">
+		<h2>colores hexadecimal</h2>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ea saepe, esse eveniet ipsa accusamus, illum porro vero, exercitationem cupiditate vel optio eum, eligendi. Modi ea voluptas nemo quasi, quidem.</p>
+	</div>
+	<div class="color-rgb">
+		<h2>colores rgb</h2>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ea saepe, esse eveniet ipsa accusamus, illum porro vero, exercitationem cupiditate vel optio eum, eligendi. Modi ea voluptas nemo quasi, quidem.</p>
+	</div>
+	<div class="color-rgba">
+		<h2>colores rgb con canal alpha</h2>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ea saepe, esse eveniet ipsa accusamus, illum porro vero, exercitationem cupiditate vel optio eum, eligendi. Modi ea voluptas nemo quasi, quidem.</p>
+	</div>
+	<div class="color-hsl">
+		<h2>colores hsl</h2>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ea saepe, esse eveniet ipsa accusamus, illum porro vero, exercitationem cupiditate vel optio eum, eligendi. Modi ea voluptas nemo quasi, quidem.</p>
+	</div>
+	<div class="color-current">
+		<h2>colores currentColor</h2>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ea saepe, esse eveniet ipsa accusamus, illum porro vero, exercitationem cupiditate vel optio eum, eligendi. Modi ea voluptas nemo quasi, quidem.</p>
+	</div>
+	<div class="opacity">
+		<h2>colores opacity</h2>
+		<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit ea saepe, esse eveniet ipsa accusamus, illum porro vero, exercitationem cupiditate vel optio eum, eligendi. Modi ea voluptas nemo quasi, quidem.</p>
+	</div>
+	<a href="index.html#temario-css">☝️</a>
+</section>
+<hr>
+<section id="units">
+	<div>
+		Unidades de medida
+	-Absolutas
+	pc -> picas
+	cm -> centimetros
+	mm -> milimetros
+	in -> pulgadas
+	Q -> cuarto de pulgada
+	pt (1/72)
+	px (1/96)
+	<br><br>
+
+	-Relativas (su valor es relativo a un contexto)
+	em, rem, ex, ch -> al tamaño de la fuente
+	em -> basada en la anchura de la "m" de la fuente del elemento
+	rem -> basada en la anchura de la "m" de la fuente del elemento raiz (html)
+	ex -> basada en la altura de la "x" de la fuente del elemento
+	ch -> basada en la anchura del "0" de la fuente del elemento
+
+	% -> al tamaño del contenedor
+	vw, vh, vmin, vmax -> al tamaño del viewport
+	vw -> ancho del viewport, va de 1 a 100
+	vh -> alto del viewport va de 1 a 100
+	vmax -> entre vw y vh toma el que tenga mayor valor
+	vmin -> entre vw y vh toma el que tenga menor valor
+	</div>
+	<h3>ems</h3>
+	<div class="ems">
+		Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores rem quam placeat unde obcaecati itaque a deleniti sunt harum, dolorum ea aliquam aut officia dolorem nisi eius animi nostrum, ipsam.
+	</div>
+	<br>
+	<h3>CHs</h3>
+	<div class="chs">
+		1234567890
+	</div>
+	<br>
+	<h3>Porcentajes %</h3>
+	<div class="porcentaje">
+		caja de bloque
+	</div>
+	<h3>Viewport Units</h3>
+	<div class="viewport">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam esse obcaecati aspernatur praesentium, minus mollitia sequi, vel sed beatae nostrum, hic sit quis non qui nulla voluptates error temporibus quo!
+	</div>
+	<div class="vmin">
+		caja vmin
+	</div>
+	<div class="vmax">
+		caja vmax
+	</div>
+	<a href="index.html#temario-css">☝️</a>
+</section>
+<hr>
+<section id="variables-functions">
+	<h2>Custom properties (Variables CSS)</h2>
+	<h3>Declaracion de Variables</h3>
+	<article class="custom-1">
+		<section class="custom-2">
+			<div class="custom-3">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, dolores aspernatur blanditiis quo culpa ullam facere fugiat quibusdam rerum eum illo magni excepturi voluptatem debitis, voluptates, numquam, dolor! Nesciunt, quaerat.
+			</div>
+		</section>
+	</article>
+<h3>Funcion Url()</h3>
+<p>para traer contenido externo al archivo CSS</p>
+<br>
+<h3>Funcion Calc()</h3>
+<div class="ch-10">
+	1234567890
+</div>
+<br>
+<h3>min() & max()</h3>
+<div class="min-max">
+	funciones min() & max()
+</div>
+<br>
+<h3>Clamp()</h3>
+<h4 class="clamp">Este es un texto de prueba para la funcion Clamp()</h4>
+</section>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<section id="fonts-texts">
+	<h2>Estilos de fuentes y textos</h2>
+	<h3>estilos de fuentes tipograficas</h3>
+	<p class="font">
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita in nemo, debitis hic architecto soluta officiis optio, autem cupiditate nulla earum quasi laudantium delectus voluptas veritatis voluptatum facilis ipsam aliquam.
+	</p>
+	<h3 class="bloodlust">fuentes externas</h3>
+	<p class="ghastly-panic">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit architecto soluta, illum accusamus enim ducimus aut distinctio tempore magni necessitatibus delectus facilis molestias odit assumenda doloremque natus suscipit? Quia.
+	</p>
+	<br>
+	<h3 class="raleway">Fuentes de google</h3>
+	<p class="raleway">
+		Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Dolores saepe aut esse provident voluptatum cumque consequatur, neque doloribus dolorem rem voluptatem adipisci est voluptas necessitatibus facere labore cum nulla quas.
+	</p>
+<a href="index.html#temario-css">☝️</a>
+</section>
+<hr>
+<section id="texts">
+	<h2>Estilos para textos</h2>
+	<p class="text">
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci optio recusandae a aliquid debitis rem quam numquam nulla, commodi tenetur minima enim non dolores esse nostrum aut iste, ab blanditiis.
+	</p>
+	<p class="overflow">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem molestiae, quos, repellat ratione ipsam quasi nisi? Cupiditate, assumenda, dolor? Veniam sint labore hic corporis ex laborum, neque dolorem inventore facilis.
+	</p>
+</section>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<section id="icons">
+	<h2>Iconos</h2>
+	<h3>iconos de google icons</h3>
+	<span class="material-icons">
+	favorite
+	</span>
+	<span class="material-icons">
+	search
+	</span>
+	<span class="material-icons">
+	home
+	</span>
+	<h3>Bootstrap Icons</h3>
+	<i class="bi bi-award"></i>
+	<i class="bi bi-balloon-heart-fill"></i>
+	<i class="bi bi-cash-coin"></i>
+	<h3>font awesome</h3>
+	<i class="fa-regular fa-face-angry"></i>
+	<i class="fa-regular fa-face-flushed"></i>
+	<i class="fa-regular fa-face-grin-beam"></i>
+	<i class="fa-regular fa-face-grin-squint"></i>
+</section>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<section id="radius-outline">
+	<h2>Bordes y Outlines</h2>
+	<div class="radius">
+	</div>
+	<div class="ellipsis"></div>
+	<div class="circle"></div>
+	<div class="perfect-elipsis"></div>
+	<h3>Outlines</h3>
+	<div class="outline"></div>
+	<div class="outline-2"></div>
+</section>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<section id="backgrounds">
+	<h2>fondos</h2>
+	<div class="box bg-color"></div>
+	<div class="box bg-image"></div>
+	<div class="box bg-size"></div>
+	<div class="box bg-repeat"></div>
+	<div class="box bg-position"></div>
+	<div class="box bg-clip"></div>
+	<div class="box bg-origin"></div>
+	<div class="box bg-attachment"></div>
+	<div class="box bg-multiple"></div>
+	<div class="box bg-art"></div>
+</section>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<section id="images">
+	<h2>Imagenes en CSS</h2>
+	<article class="card">
+		<img src="assets/ichigo-kurosaki.png" alt="ichigo">
+	</article>
+</section>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<section id="lists">
+	<h2>estilos de listas</h2>
+	<ul class="list">
+		<li>Thrash</li>
+		<li>Death</li>
+		<li>Heavy</li>
+		<li>Hard Rock</li>
+	</ul>
+	<h2>Texto en columnas</h2>
+	<ol class="column">
+		<li>Genryusai Yamamoto</li>
+		<li>Soi Fon</li>
+		<li>Gin Ichimaru</li>
+		<li>Retsu Unohana</li>
+		<li>Sosuke Aizen</li>
+		<li>Byakuya Kuchiki</li>
+		<li>Sajin Komamura</li>
+		<li>Shunsui Kyoraku</li>
+		<li>Kaname Tosen</li>
+		<li>Toshiro Hytsugaia</li>
+		<li>Kempachi Zaraki</li>
+		<li>Mayuri Kurotsuchi</li>
+		<li>Jushiro Ukitake</li>
+	</ol>
+</section>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<h1 id="tables">Tablas</h1>
+<table class="table">
+	<tr>
+		<th>A</th>
+		<th>B</th>
+		<th>C</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td></td>
+		<td>6</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>8</td>
+		<td>9</td>
+	</tr>
+</table>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<h1 id="form">Formulario en css</h1>
+<form action="" method="POST" class="contact-form">
+		<input type="text" name="nombre" placeholder="escribe tu nombre" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" title="Solo se aceptan letras y espacios en blanco" required>
+		<input type="email" name="correo" placeholder="escribe tu correo" pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$" title="formato de correo invalido" required>
+		<textarea name="comentarios" required></textarea>
+		<input type="submit">
+	</form>
+<a href="index.html#temario-css">☝️</a>
+<hr>
+<a href="index.html#temario-css">☝️</a>
+</body>
+</html>

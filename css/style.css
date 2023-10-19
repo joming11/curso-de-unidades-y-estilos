@@ -1,0 +1,740 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+/*colores
+-por nombre*/
+.color-name	{
+	background-color: indianred;
+	color: floralwhite;
+	border: thick solid sandybrown;
+}
+
+/*colores hexadecimal
+0123456789abcdef
+ff canal rojo 66 canal verde 00 canal azul
+si se agregan dos valores, serian los del canal alfa
+opacidad #c7c7c780 el color al 80% de opacidad*/
+
+.color-hex	{
+	background-color: #8B0000;
+	color: #FFFFF0;
+	border: thick solid #F5DEB3;
+}
+
+/*rgb (medios digitales)
+acepta 8 bits por canal
+bit(0/1)
+base 2 elevada a la 8 = 256
+cmyk cyan,magenta,yellow,key(intensidad de negro) (medios impresos)*/
+
+.color-rgb	{
+	background-color: rgb(32, 178, 170);
+	color: rgb(230, 230, 250);
+	border: thick solid rgb(216, 191, 216);
+}
+
+/*canal alfa, 1 color 100%, 0 sin color*/
+.color-rgba	{
+	background-color: rgba(32, 178, 170, .51);
+	color: rgba(230, 230, 250, .72);
+	border: thick solid rgba(216, 191, 216, .36);
+}
+
+/*HSL hue, saturation, lightness*/
+/*HSL tono, saturacion, luminosidad
+hue=tono (circulo cromatico)
+0 -> rojo
+60° -> amarillo
+120° -> verde
+180° -> cyan
+240° -> azul
+300° -> magenta
+
+-Saturacion (intensidad del color)
+0% -> escala de grises
+100% -> color puro
+
+Luminosidad (tendencia hacia blanco o negro)
+0% -> negro
+100% -> blanco*/
+
+.color-hsl {
+	background-color: hsl(11, 100%, 50%);
+	color: hsl(0, 100%, 100%);
+	border: thick solid hsl(85, 100%, 50%);
+}
+
+/*Transparent & Current color
+Transparent -> vuelve transparente un color
+aplica un rgb(0,0,0,0)
+el canal alpha vuelve opaco el color, al punto de quedar transparente
+
+CurrentColor -> hereda el valor por defecto de la propiedad color
+del ancestro que tenga definida esta propiedad*/
+
+.color-current {
+	color: limegreen;
+	border: thick solid currentColor;
+}
+
+/*Opacity
+afecta a todas las propiedades de una clase
+1 sin efecto
+0 vuelve invisible el color
+valores de 0 a 1*/
+
+.opacity {
+	background-color: orchid;
+	color: lavenderblush;
+	border: thick solid gold;
+	opacity: .71;
+}
+
+/*Unidades de medida
+-Absolutas (si alguna seccion o el site se va a imprimir)
+pc -> picas
+cm -> centimetros
+mm -> milimetros
+in -> pulgadas
+Q -> cuarto de pulgada
+pt (1/72)
+px (1/96) recomendacion para definir el font size del documento
+
+-Relativas (su valor es relativo a un contexto)
+em, rem, ex, ch -> al tamaño de la fuente
+em -> basada en la anchura de la "m" de la fuente del elemento
+rem -> basada en la anchura de la "m" de la fuente del elemento raiz (html) recomendacion para expresar la tipografia
+ex -> basada en la altura de la "x" de la fuente del elemento
+ch -> basada en la anchura del "0 cero" de la fuente del elemento
+
+% -> al tamaño del contenedor (para el contenido)
+vw, vh, vmin, vmax -> al tamaño del viewport
+vw -> ancho del viewport, va de 1 a 100
+vh -> alto del viewport va de 1 a 100
+vmax -> entre vw y vh toma el que tenga mayor valor
+vmin -> entre vw y vh toma el que tenga menor valor
+
+viewport, area visible de la pantalla donde se renderiza el contenido html*/
+
+/*ems -> valor inicail -> 16px 
+si definimos un tamaño de fuente ese será el valor de referencia*/
+.ems {
+	font-size: 20px;
+	box-sizing: border-box;
+	border: .5em solid darkkhaki;
+	padding: .1em;
+}
+
+/*Rems
+siempre el valor de referencia sera el definido en la etiqueta html
+si no hay un valor definido, sera 16px el valor por defecto
+esto no afecta herencia (contenedores hijos)
+el valor rem siempre se tomara de la etquita html*/
+
+.chs {
+	background-color: indianred;
+	border: thin solid black;
+	width: 10ch;
+}
+
+/*porcentaje
+la altura de un elemento variara segun su contenido
+la altura del body dependera del contenido dentro de body
+para darle valor porcentual al height un elemento debe estar
+dentro de otro con altura definida en valores absolutos, px*/
+.porcentaje {
+	background-color: darksalmon;
+	padding: 2%;
+	width: 55%;
+}
+
+/*Viewport
+para aplicar vw de 100 se deben quitar primer los margenes
+que tiene el body por defecto, sino, deborda y genera scroll
+horizontal
+el scroll vertical forma parte del viewport
+no respeta herencia, no importa si un contenedor padre tiene
+altura definida, el contenedor hijo ocupara todo el viewport height
+si se le asigna*/
+.viewport {
+	background-color: darkolivegreen;
+	height: 40vh;
+	width: 50vw;
+}
+
+/*vmin, vmax*/
+
+.vmin, .vmax {
+	background-color: darkseagreen;
+	border: thick solid	darkturquoise;
+	height: 50vmin;
+	width: 50vmax;
+}
+
+/*Variables & Funciones
+-las variables se definen dentro de un selector
+-se usan dos guiones seguido del nombre de la variable
+para llamar a la variable, se define una propiedad y se usa
+var(nombre de la variable que creamos)
+-las variables aplican herencia
+-el scope de las variables existe de dentro del selector que declara
+y sus hijos, no existe para otros elementos
+-se puede colocar un segundo parametro en la evaluacion de la variable
+(--nombredevariable, valor opcional(por si esta fuera del scope de la variable)
+-pueden existir dos variables con el mismo nombre, siempre que existan
+en distintos ambitos
+-podemos declarar variables globales (disponibles para todos los elementos)
+declarando en el html, para ello se usa la pseudoclae :root
+
+-la funcion url() sirve para traer contenido externo al archivo css*/
+
+.custom-1 {
+	--primary-color: gray;
+}
+
+.custom-1 {
+	color: var(--primary-color);
+	border: thin solid var(--primary-color);
+}
+
+/*Calc ()*/
+.ch-10 {
+	background-color: orangered;
+	--padding-size: 2ch;
+	--num-ch: 10ch;
+	border: thin solid thistle;
+	font-size: 2rem;
+	padding: var(--padding-size);
+	width: calc(var(--num-ch) + var(--padding-size)*2);
+}
+
+/*min() & max()*/
+.min-max {
+	background-color: darkred;
+	height: max(200px, 25vh);
+	width: min(300px, 20vw);
+}
+
+/*Clamp()*/
+.clamp {
+	font-size: clamp(.5rem, .8rem + 3vw, 1.5rem);
+}
+
+/*fuentes y tipografias
+
+font-family
+font-size
+font-weight - grosor - 100, 400, 700, 900
+light, normal, bold
+font-style
+font-variant -> normal, small-caps
+line-height
+font ->shorthand
+*/
+
+.font {
+	font-family: sans-serif, monospace;
+	font-size: 1.25rem;
+	font-weight: thin;
+	font-style: oblique;
+	font-variant: small-caps;
+	line-height: 1.5;
+	/*font: style, variant, weight, size / line-height, family;*/
+}
+
+/*cargar fuentes externas
+se deben descargar y tener fisicamente en una carpeta
+ttf true type font
+woff o woff2 web open font format
+por cada tipografia, se hace una invocacion font-face
+*/
+/*si tuviera otro formato de la tipografia se coloca , urlurl("../assets/BloodLust.woff2") format("woff2");*/
+@font-face {
+	font-family: "BloodLust";
+	src: url("../assets/BloodLust.woff") format("woff");
+	font-display: swap;
+}
+.bloodlust {
+	font-family: "BloodLust", "sans-serif;";
+}
+
+@font-face {
+	font-family: "ghastly-panic";
+	src: url("../assets/Ghastly-Panic.woff") format("woff");
+	font-display: swap;
+}
+
+.ghastly-panic {
+	font-family: "ghastly-panic", "sans-serif";
+	font-size: 2rem;
+}
+
+/*Propiedad font-display
+-auto -> permite que el navegador utilice el metodo predeterminado que suele ser block
+-block -> oculta brevemente el texto hasta que la fuente haya sido descargada por completo
+-swap -> indica al navegador que utilice la fuente alternativa para mostrar texto
+-fallback -> es una mezcla de auto y swap
+-optional ->ocultará el texto, luego lo cargara con la fuente alternativa y finalmente
+aplicara la fuente personalizada*/
+
+/*fuentes de google
+-se cargan externamente
+-se puede usar @import
+-copiar el link y colocarlo en el head del doc html
+-descargar la tipografia*/
+
+.raleway {
+	font-family: 'Raleway', sans-serif;
+}
+
+/*Propiedades aplicables a textos
+text-align
+text-decoration
+text-indent
+text-overflow
+	overflow: hidden;
+	white-space: nowrap;
+white-space: permite trabajar con los espacios en blanco
+white-space:  normal; -> valida un solo espacio en blanco sin importar
+que existan mas en el documento html
+white-space: nowrap; -> coloca todo en una linea
+white-space: pre; -> respete todos los espacios en blanco
+white-space: pre-wrap; ->se ajusta al espacio del contenedor
+letter-spacing
+word-spacing ->espacio entre palabras
+word-break
+	normal
+	keep-all
+	break-all
+writing-mode
+	horizontal-tb ->occidental
+	vertical-lr -> vertical de izquierda a derecha
+	vertical-rl -> vertical de derecha a izquierda*/
+
+.text {
+	font-size: 2rem;
+	text-align: left;/*por defecto*/
+	text-align: right;
+	text-align: center;
+	text-align: justify;
+	text-decoration: underline;
+	text-decoration: overline;
+	text-decoration: none;
+	text-indent: 2rem;/*sangria*/
+	text-transform: capitalize;/*coloca la primera letra de cada palabra en mayuscula*/
+	text-transform: uppercase;/*coloca todo en mayuscula*/
+	text-transform: lowercase;/*coloca todo en minuscula*/
+	letter-spacing: .2rem;/*espacio entre cada letra*/
+}
+
+.overflow {
+	background-color: lightsalmon;
+	border: thin solid darkred;
+	font-size: 1.5rem;
+	text-overflow: clip;/*corta el texto*/
+	text-overflow: ellipsis;/*genera puntos suspensivos*/
+	overflow: hidden;
+	white-space: nowrap;
+	width: 40vw;
+}
+
+/*Iconos*/
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/*Border-radius
+border-top-left-radius
+border-top-right-radius
+border-bottom-left-radius
+border-bottom-right-radius
+-si se aplican dos valores, se asignan -> el primer valor para
+top-left y bottom-right, segundo valor top right y bottom left
+
+-si se aplican 3 valores, se aplican -> top-left
+segundo valor, top right y bottom left
+tercer valor, bottom right
+
+-si se aplican 4 valores, se aplican
+top-left
+top-right
+bottom-right
+bottom-left*/
+
+.radius {
+	background-color: olive;
+	border-radius: 3rem;
+	height: 20vh;
+	width: 20vw;
+}
+
+/*para esta figura, se toman en cuanto ambos radios de la elipse*/
+
+.ellipsis {
+	background-color: darkkhaki;
+	border-radius: 3rem / 6rem;
+	height: 20vh;
+	margin-top: 1rem;
+	width: 20vw;
+}
+
+.circle {
+	background-color: sandybrown;
+	border-radius: 50%;
+	height: 200px;
+	margin-top: 1rem;
+	width: 200px;
+}
+
+.perfect-elipsis {
+	background-color: saddlebrown;
+	border-radius: 50%;
+	height: 20vh;
+	margin-top: 1rem;
+	width: 20vw;
+}
+
+/*outline ->es como una alfombra que no daña el flujo del dom
+puede recibir valores negativos
+bordes externos
+outline-width
+outline-style
+outline-color*/
+
+.outline {
+	background-color: darksalmon;
+	height: 20vh;
+	outline: thin solid darkred;
+	width: 20vw;
+}
+
+.outline-2 {
+	background-color: darkred;
+	height: 20vh;
+	margin-top: 1rem;
+	outline: thin solid darksalmon;
+	outline-offset: .5rem;
+	width: 20vw;
+}
+
+/*Backgrounds
+Background-color: define el color de fondo del elemento;
+background-image: define la imagen de fondo del elemento;
+background-repeat: define como se repite la imagen de fondo del elemento;
+background-size: define el tamaño de la imagen de fondo,;
+primer valor x. segundo y
+	-cover: cambia el tamaño de la imagen de fondo para asegurarse de;
+	permanecer visible (se adapta), se asegura que se cubra todo el contenedor,
+	pero segun las dimensiones, quizas no se vea toda la imagen
+	-contain: cambia el tamaño de la imagen de fondo para asegurarse;
+	de que el elemento este totalmente cubierto (se vea toda la imagen)
+Background-position: define la posicion de imagen de fondo, primer valor x;
+	segundo y, y si no se especifica un segundo valor éste será center
+	aparte de valores numericos podemos indicar el posicionamiento con la palabras
+	center, top, bottom, left and right
+Background-clip: define cuanto debe extenderse el fondo dentro del elemento;
+Background-origin: define el origen de la imagen de fondo;
+Background-attachment: define como se comportará la imagen de fondo al desplazarse;	
+por la pagina
+*/
+
+.box {
+	border: thin dashed dodgerblue;
+	height: 30vh;
+	margin-top: 1rem;
+	width: 30vw;
+}
+
+.bg-color {
+	background-color: greenyellow;
+}
+
+.bg-image {
+	background-image: url("../assets/bleach-01.jpg");
+}
+
+.bg-size {
+	background-image: url("../assets/bleach-01.jpg");
+	background-size: 400px, 300px;
+	background-size: 300px;
+	background-size: contain;
+	background-size: cover;
+}
+
+.bg-repeat {
+	background-image: url("../assets/bleach-01.jpg");
+	background-size: contain;
+	background-repeat: repeat;
+	background-repeat: no-repeat;
+}
+
+.bg-position {
+	background-image: url("../assets/bleach-01.jpg");
+	background-size: 150px;
+	background-repeat: no-repeat;
+	background-position: 100px, 20px;
+	background-position: top right;
+	background-position: center;
+}
+
+/*afecta todo el fondo*/
+.bg-clip {
+	background-image: url("../assets/bleach-01.jpg");
+	background-clip: border-box;/*default*/
+	background-clip: padding-box;
+	background-clip: content-box;
+	background-size: cover;
+	padding: 1rem;
+}
+
+/*afecta al contenido(image)*/
+.bg-origin {
+	background-image: url("../assets/bleach-01.jpg");
+	background-origin: padding-box;/*default*/
+	background-origin: border-box;
+	background-origin: content-box;
+	background-size: cover;
+	padding: 1rem;
+}
+
+.bg-attachment {
+	background-image: url("../assets/bleach-01.jpg");
+	background-attachment: scroll;/*default*/
+	background-attachment: fixed;
+	background-size: cover;
+	height: 90vh;
+	width: 100%;
+}
+
+.bg-multiple {
+	background-color: darkorange;
+	background-image: url("../assets/genryusai.png"),
+	url("../assets/byakuya.jpg"),
+	url("../assets/ichigo-kurosaki.png"),
+	url("../assets/kenpachi-zaraki.png"),
+	url("../assets/tōshirō-hitsugaya.png");
+	background-repeat: no-repeat;
+	background-position: center, top right, top left, bottom left, bottom right;
+	background-size: 10%;
+	height: 50vh;
+	width: 100%;
+}
+
+/*backgroud -> shorthand
+-> al aplicar el shorthand se colocan todas las propiedades y luego la coma(,)
+-background-image 
+-background-position 
+-background-size 
+-background-repeat 
+-background-origin 
+-background-clip 
+-background-attachment
+-background-color
+*/
+
+.bg-art {
+	width: 100%;
+	height: 80vh;
+	background: url("../assets/ichigo-kurosaki.png") no-repeat center,
+ 	url("../assets/kenpachi-zaraki.png") no-repeat bottom left,
+	url("../assets/genryusai.png") no-repeat top left,
+	url("../assets/byakuya.jpg") no-repeat top right,
+	url("../assets/tōshirō-hitsugaya.png") no-repeat bottom right;
+	background-size: 19%;
+}
+
+/*Imagenes*/
+
+/*un reseteo general para las imagenes es*/
+
+img {
+	max-width: 100%;
+	height: auto;/*esto por si el usuario usa un navegador viejo */
+}
+
+.card {
+	border: thin solid black;
+	width: 300px;
+	height: 500px;
+}
+
+/*estirar una imagen a lo alto del height, deforma la imagen*/
+/*.card img {
+	height: 500px;
+}*/
+
+/*se soluciona con
+fill es el valor por default
+intenta llenar el espacio determinado con la imagen
+
+-cover, mantiene la forma de la imagen y distribuye el espacio
+centrando la imagen para cubrir el espacio determinado
+
+-object-position funciona como background position
+recibe valores de top, bottom, left y right
+define desde que posicion se empieza a ver la imagen
+por default tiene dos valores 50% para x, 50% para y*/
+/*.card img  {
+	object-fit: fill;
+	object-fit: cover;
+	object-fit: none;
+	object-fit: contain;
+	/*object-fit: scale-down; toma el valor menor entre none y contain, y aplica el menor
+	object-position: left top;
+}*/
+
+/*Listas en CSS
+-no se puede aplicar type de manera inline desde el html a una lista desordenada*/
+
+/*lis-style-type*/
+.list {
+	list-style-type: square;/*cuadritos*/
+	list-style-type: disc;/*default*/
+	list-style-type: circle;/*circulos vacios*/
+	list-style-type: lower-roman;/*numeros romanos en minuscula*/
+	list-style-type: upper-roman;/*numeros romanos en mayuscula*/
+	list-style-type: lower-hexadecimal;/*numeros, desde el 1*/
+	list-style-type: lower-greek;/*letras griegas alpha, beta, gamma*/
+	list-style-type: lower-alpha;/*letras, a, b, c*/
+	list-style-type: lower-latin;/*letras, a, b, c*/
+	list-style-type: lower-norwegian;/*numeros, 1, 2, 3*/
+	list-style-type: lower-armenian;/*letras armenia*/
+	list-style-type: decimal;/*numeros, 1, 2, 3...*/
+	list-style-type: decimal-leading-zero;/*numeros, 01, 02, 03...*/
+	list-style-type: none;/*sin viñetas*/
+}
+
+/*list-style-image
+-debe ser una imagen pequeñita, idealmente del tamaño del bullet*/
+
+/*.list {
+	list-style-image: url(../assets/tōshirō-hitsugaya.png);
+}*/
+
+/*para utilizar una imagen grande como bullet*/
+.list li::before {
+	background-image: url("../assets/kenpachi-zaraki.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	content: "";
+	display: inline-block;
+	height: 2rem;
+	width: 2rem;
+}
+
+/*list-style es un shortand
+-list-style-type
+-list-style-image
+-list-style-position*/
+
+/*Texto en columnas*/
+.column {
+	column-count: 4;/*numero de columnas*/
+	column-gap: 1rem;/*espacio entre columnas*/
+	column-rule: thin solid orangered;/*linea de separacion*/
+	column-width: 100px;/*tamaño minimo de anchura de las columnas*/
+	list-style-position: inside; 
+}
+
+/*Estilos de tabla*/
+
+.table {
+	font-size: 3rem;
+	border-collapse:separate;/*propiedad que solo se aplica a la etiqueta table*/
+	border-collapse:collapse;/*separate es el valor por default*/
+	/*empty-cells: show; valor por default*/
+	empty-cells: hide;
+}
+
+table, th, td {
+	border: 1px solid black;
+	/*border-spacing: 7px; se aplica si el border collapse tiene valor separate*/
+}
+
+/*Formularios*/
+.contact-form {
+	--form-text-color: #333;
+	--form-success-color: #4caf50;
+	--form-error-color: #f44336;
+	--form-bg-color: #ddd;
+	--form-border-color: #222;
+	--form-placeholder-color: #009;
+
+	background-color: var(--form-bg-color);
+	border: thin solid var(--form-border-color);
+	padding: 1.5rem;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.contact-form > * {
+	border-radius: .39rem;
+	color: var(--form-text-color);
+	display: block;
+	font-family: sans-serif;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	padding: .5rem;
+	width: 100%;
+	caret-color: var(--form-placeholder-color);
+}
+
+.contact-form > *::placeholder {
+	color: var(--form-placeholder-color); 
+}
+
+.contact-form > *[required]:invalid {
+	border: thin solid var(--form-error-color);
+}
+
+.contact-form > *[required]:valid {
+	border: thin solid var(--form-success-color);
+}
+
+.contact-form	input[type="submit"]{
+	background-color: var(--form-placeholder-color);
+	color: #fff;
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 30%;
+}
+
+.contact-form	input[type="submit"]:hover {
+	cursor: pointer;
+	opacity: .75;
+}
+
+.contact-form textarea {
+	resize: none;
+}
